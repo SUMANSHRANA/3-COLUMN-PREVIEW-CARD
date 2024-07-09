@@ -1,0 +1,102 @@
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+   /* agar hum display felx dekar unha align karna chahaha toh kun nhi hoga
+    /* display: flex; is i will give display flex then only bigger div i.e crds-container will be impacted and all the other 3 divs will not be affected because they are not the direct childs */
+
+    /* display: flex;
+   height: 100vh; */
+    /*cneter karna ka liya humna body i height 100vh or isa flex bana diya toh ab iska child ko jab auto denga toh boh automatically hi center ma ah jayega, nut body ko height dena achi pracrtice mhi hoti ha iusliya hum ek new tah ka andar cards-conatiner ko dalega*/
+
+}
+main{
+     display: flex;
+    min-height: 100vh;
+
+    /*now i have 2 ways of centering it
+    1.if i want to cnter the childs from the main then aign center justify center
+    2. margin auto
+    but if i use way 2 then when i will reduce the size then the sides witll touch so either i will havbvbe to give padding or use way 1 due to this way is used moire
+    */
+}
+.cards-container{
+    /* NOW WE WILLCHANGE THIS FOR THE LAPTOP HOWEVER I CAN DO IT USING MEDIA QUERIES BUT AT THIS MOMENT I DONT INOW MEDIKIKA QUERIES SO I WILL USE FLEX  */
+    display: FLEX;
+    /*when we will apply display:flex property then all the direct childern of this parent will behave like block element but they will not cover entire line and since by default the direction is row so they all will align in the in row wise and will only cover as much space as needed */
+
+    color: white;
+    /* padding:16px;  WEC OMMENT OUT PADDING BECAUSE NOW WE WILL GIVE MARGIN BECUSE WE WANT TO ROUND THE BPRDER PADDING*/
+    /*MARGIN GIVE OUTSIDE SAPCE AND PADDING GIVE INSIDE SPACE*/
+    /* NOW WE WILL MAKE BORDERS ROUND */
+
+    overflow: HIDDEN;/*GENERALLY ITS NOT PREFEERED TO SET OVERFLOW HIDDEN BUT WE WILL DEISCUSS IT LATER*/
+    border-radius: 15PX;
+    /* NOW WE WILL MAKE BORDERS ROUND */
+
+    /*NOW WE WILL CENTER IT*
+     margin: AUTO;  if we will use it then rmeber margin auto is given on the item wwhich we want in the center of the contaoner so here .crds-container itself is a flex container so we cannot apply this propery on it*/
+     margin: auto;
+      
+       max-width: 910px;
+    
+}
+.cards a{
+    color: inherit;
+    text-decoration: none;
+    border:2px solid white ;
+    padding: 0.5em 1.5em;
+    border-radius: 10px;
+    /* we want to add paddin top in our anchor tag so we will add display as inline block */
+    display: inline-block;
+    margin-top: 2em;
+
+}
+
+.orange-card{
+    background-color: #e28525;
+   /* WHEN WE ARE SEEING IN MOBILE TYPE
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+}
+.green-card{
+ background-color: #016972;
+}
+.dark-green-card{
+background-color: #00403f;
+/* border-radius: 0px 0px 10px 10px; */
+}
+/* now i want to give same styling to all the h tags in class card so we will use cobination selector */
+.cards h2{
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-family: "Big Shoulders Display", sans-serif;
+}
+.cards p{
+    font-family: "Big Shoulders Display", sans-serif;
+     
+    opacity: 0.7;
+    line-height: 1.75;
+}
+/* now we will same styling to all the childers of the class cards */
+/* since we have not given width to any of the three divs due mto which wince they are in a flex box so there base size will depend upon there conteny size and now since content is more 2 divs so there size is more as compared to another div and if a div has no contetnt then its width will be very less
+so now we will give equal size to all the divs and most easy way is to distribute width qualy is to give width 100% to all 
+
+*/
+.cards{
+    padding: 3rem;
+    width:100%
+}
+/* now if i want to modify it for the mobile and use sam,e for mobile and laptop then use media query*/
+@media (width<700px){
+    .cards-container{
+        flex-direction: column;
+        /*now width will not be shrinked height will be shrinked becuase now flex direction in column so hwight will behav elike width*/
+    }
+    /*now we need to make with auto other wise they will go outisde*/
+    .cards-container{
+width: auto;
+overflow: hidden;
+width: unset;
+    }
+}
